@@ -1,0 +1,49 @@
+#include <iostream>
+
+#include "zona.h"
+#include "explorador.h"
+#include "ElementoInteractivo.h"
+
+using namespace std;
+
+Zona::Zona(string nombre, string codigo) {
+    this->nombre = nombre;
+    this->codigo = codigo;
+}
+
+string Zona::getNombre() const {
+    return nombre;
+}
+
+string Zona::getCodigo() const {
+    return codigo;
+}
+
+void Zona::agregarElemento(ElementoInteractivo* elemento) {
+    elementos.push_back(elemento);
+}
+
+void Zona::mostrarElementos() const {
+    cout << "Elementos en la zona " << nombre << ":" << endl;
+    for (i = 0; i < elementos.size(); i++) {
+        cout << i + 1 << ". " << elementos[i]->getNombre() << endl;
+    }
+}
+
+void Zona::interactuarConElementos(int indice, Explorador* explorador) {
+    if (indice > 0 && indice <= elementos.size()) {
+        elementos[indice - 1]->interactuar(explorador);
+    } else {
+        cout << "Índice inválido." << endl;
+    }
+}
+
+void Zona::interactuarConElementos(string nombre, Explorador* explorador) {
+    for (ElementoInteractivo* elemento : elementos) {
+        if (elemento->getNombre() == nombre) {
+            elemento->interactuar(explorador);
+            return;
+        }
+    }
+    cout << "Elemento no encontrado." << endl;
+}
