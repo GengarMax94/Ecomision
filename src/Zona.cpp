@@ -25,7 +25,7 @@ void Zona::agregarElemento(ElementoInteractivo* elemento) {
 
 void Zona::mostrarElementos() const {
     cout << "Elementos en la zona " << nombre << ":" << endl;
-    for (i = 0; i < elementos.size(); i++) {
+    for (int i = 0; i < elementos.size(); i++) {
         cout << i + 1 << ". " << elementos[i]->getNombre() << endl;
     }
 }
