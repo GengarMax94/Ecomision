@@ -52,5 +52,59 @@ EcoMision::EcoMision() {
     reserva.agregarZona("bosque", bosque);
     reserva.agregarZona("rio", rio);
 
-    explorador->cambiarZona(bosque);
+    explorador->mover(bosque);
+}
+
+void EcoMision::mostrarMenu() {
+
+    int opcion;
+
+    do {
+
+        cout << endl;
+        cout << "===== ECOMISION ====="
+             << endl;
+
+        cout << "Zona actual: "
+             << explorador->getZonaAtual()->getNombre()
+             << endl;
+
+        cout << "Energia: "
+             << explorador->getEnergia()
+             << endl;
+
+        cout << "Puntaje ambiental: "
+             << explorador->getPuntajeAmbiental()
+             << endl;
+
+        cout << endl;
+
+        explorador->getZonaAtual()
+                   ->mostrarElementos();
+
+        cout << endl;
+
+        cout << "Seleccione un elemento: ";
+        cin >> opcion;
+
+        explorador->getZonaAtual()
+                   ->interactuarConElementos(
+                        opcion,
+                        explorador
+                   );
+
+    } while (!explorador->exploradorEstaagotado());
+}
+
+void EcoMision::iniciarJuego() {
+
+    cout << "Bienvenido a EcoMision"
+         << endl;
+
+    mostrarMenu();
+
+    cout << endl;
+
+    cout << "Juego terminado"
+         << endl;
 }
