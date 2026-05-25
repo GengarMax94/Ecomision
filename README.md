@@ -2,8 +2,8 @@
 
 ## Integrantes
 
-- Juan Davila
-- Nombre compañero
+- Juan Jose Arenas
+- Jorge Santana
 
 ---
 
