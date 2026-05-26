@@ -33,6 +33,11 @@ void Zona::mostrarElementos() const {
 void Zona::interactuarConElementos(int indice, Explorador* explorador) {
     if (indice > 0 && indice <= elementos.size()) {
         elementos[indice - 1]->interactuar(explorador);
+        if (elementos[indice - 1]->getNombre() == "Animal Herido"
+        || elementos[indice - 1]->getNombre() == "Basura toxica") {
+            delete elementos[indice - 1];
+            elementos.erase(elementos.begin() + indice - 1);
+        }
     } else {
         cout << "Índice inválido." << endl;
     }
@@ -42,7 +47,6 @@ void Zona::interactuarConElementos(string nombre, Explorador* explorador) {
     for (ElementoInteractivo* elemento : elementos) {
         if (elemento->getNombre() == nombre) {
             elemento->interactuar(explorador);
-            return;
         }
     }
     cout << "Elemento no encontrado." << endl;

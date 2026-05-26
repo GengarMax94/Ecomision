@@ -10,7 +10,7 @@ class ElementoInteractivo{
 
     public:
         virtual void interactuar(Explorador* explorador) = 0; 
-        virtual ~ElementoInteractivo();
+        virtual ~ElementoInteractivo() {}
         virtual string getNombre() const = 0;
 
 };
