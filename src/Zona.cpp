@@ -34,7 +34,9 @@ void Zona::interactuarConElementos(int indice, Explorador* explorador) {
     if (indice > 0 && indice <= elementos.size()) {
         elementos[indice - 1]->interactuar(explorador);
         if (elementos[indice - 1]->getNombre() == "Animal Herido"
-        || elementos[indice - 1]->getNombre() == "Basura toxica") {
+        || elementos[indice - 1]->getNombre() == "Basura toxica"
+        || elementos[indice - 1]->getNombre() == "Basura en Sendero"
+        || elementos[indice - 1]->getNombre() == "Desecho Quimico") {
             delete elementos[indice - 1];
             elementos.erase(elementos.begin() + indice - 1);
         }
